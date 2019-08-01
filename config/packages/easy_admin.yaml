@@ -1,0 +1,4 @@
+easy_admin:
+    entities:
+      Todo:
+        class: App\Entity\Todo
