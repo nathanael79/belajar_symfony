@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Todo list</title>
+    </head>
+    <body>
+        <h1>Todo list</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td>No.</td>
+                    <td>Todo</td>
+                    <td>Status</td>
+                    <td>Pilihan</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, data in todos %}
+                <tr>
+                    <td>{{ i+1 }}</td>
+                    <td>{{data.description}}</td>
+                    <td>
+                        {%  if data.isDone %}
+                            {{ 'SELESAI(' ~ (data.doneAt | date('d-m-Y H:i:s')) ~')'}}
+                        {% else %}
+                            {{ 'BELUM SELESAI' }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="#">Edit</a>
+                        <a href="#">Hapus</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    <a href="#">Tambah Baru</a>
+    </body>
+</html>
